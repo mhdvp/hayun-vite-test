@@ -2,13 +2,13 @@
 import { createRoot } from 'react-dom/client'
 // import App from './App.jsx'
 // import './index.css'
-import DevAudiogram from './components/DevAudiogram.jsx'
+import Mix from './components/Mix.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <>
     {/* <App /> */}
-    <DevAudiogram />
+    <Mix />
     {/* <StrictMode>
 
     </StrictMode> */}

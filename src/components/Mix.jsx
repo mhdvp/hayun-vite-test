@@ -1,7 +1,7 @@
 
 import { useEffect, createRef } from 'react';
-import { AudiogramChart, dims, officeData, patientData } from 'hayun-vite';
-import Forms from 'hayun-vite/src/Form/Forms';
+import { Audiogram, dims, officeData, patientData, Forms } from 'hayun-vite';
+// import Forms from 'hayun-vite/src/Form/Forms';
 
 function DevAudiogram() {
 
@@ -11,22 +11,26 @@ function DevAudiogram() {
   const formRef = createRef(null);
   useEffect(() => {
 
-    
-    const forms = new Forms({ container: formRef.current, name: 'form1' });
-    forms.update({ officeData, patientData, sessionIndex: 0 })
 
-    const RAudiogram = new AudiogramChart({
+    const forms = new Forms({ container: formRef.current });
+    forms.update({ officeData, patientData, sessionIndex: 0 })
+    console.log(dims);
+    Object.assign(dims, { width: 500, height: 500 })
+
+    const RAudiogram = new Audiogram({
       container: RAudRef.current,
-      dims: dims.display,
+      dims: { width: 600, height: 500 },
       side: 'R', x: 0, y: 0,
-      width: 700, height: 800, events: true
+      // width: 500, height: 800,
+      events: true
     })
 
-    const LAudiogram = new AudiogramChart({
+    const LAudiogram = new Audiogram({
       container: LAudRef.current,
-      dims: dims.display,
+      // dims: dims.display,
       side: 'L', x: 0, y: 0,
-      width: 700, height: 800, events: true
+      // width: 500, height: 800,
+      events: true
     })
 
     RAudiogram.update({
